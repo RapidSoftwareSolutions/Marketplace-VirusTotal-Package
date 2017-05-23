@@ -1,5 +1,5 @@
-[![](https://scdn.rapidapi.com/RapidAPI_banner.png)](https://rapidapi.com/package/VirusTotal/functions?utm_source=RapidAPIGitHub_VirusTotalFunctions&utm_medium=button&utm_content=RapidAPI_GitHub)# VirusTotal Package
-VirusTotal is a free service that analyzes suspicious files and URLs and facilitates the quick detection of viruses, worms, trojans, and all kinds of malware.
+[![](https://scdn.rapidapi.com/RapidAPI_banner.png)](https://rapidapi.com/package/VirusTotal/functions?utm_source=RapidAPIGitHub_VirusTotalFunctions&utm_medium=button&utm_content=RapidAPI_GitHub)
+# VirusTotal Package
 * Domain: [https://virustotal.com/](https://https://virustotal.com/)
 * Credentials: apikey
 
