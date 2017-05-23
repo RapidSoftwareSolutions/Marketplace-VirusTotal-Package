@@ -1,0 +1,16 @@
+services:
+  data_validator:
+    class: RapidAPIBundle\Service\DataValidator
+    arguments: []
+
+  sender:
+    class: RapidAPIBundle\Service\Sender
+    arguments: []
+
+  metadata:
+    class: RapidAPIBundle\Service\Metadata
+    arguments: []
+
+  manager:
+    class: RapidAPIBundle\Service\Manager
+    arguments: ["@data_validator", "@metadata","@request_stack"]

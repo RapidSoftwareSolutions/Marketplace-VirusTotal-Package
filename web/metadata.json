@@ -1,0 +1,295 @@
+{
+  "package": "VirusTotal",
+  "tagline": "VirusTotal API",
+  "description": "VirusTotal is a free service that analyzes suspicious files and URLs and facilitates the quick detection of viruses, worms, trojans, and all kinds of malware.",
+  "image": "https://logo.clearbit.com/virustotal.com?s=128",
+  "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-VirusTotal-Package",
+  "keywords": [
+    "API",
+    "virus",
+    "virustotal",
+    "security"
+  ],
+  "accounts": {
+    "domain": "https://virustotal.com/",
+    "credentials": [
+      "apikey"
+    ]
+  },
+  "blocks": [
+    {
+      "name": "scanFiles",
+      "description": "Send file to VirusTotal",
+      "method": "POST",
+      "url": "https://www.virustotal.com/vtapi/v2/file/scan",
+      "type": "multipart",
+      "args": [
+        {
+          "name": "apikey",
+          "type": "credentials",
+          "info": "VirusTotal apikey",
+          "required": true
+        },
+        {
+          "name": "file",
+          "type": "File",
+          "info": "File to scan",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "rescanFiles",
+      "description": "Rescanning already submitted files",
+      "method": "POST",
+      "url": "https://www.virustotal.com/vtapi/v2/file/rescan",
+      "args": [
+        {
+          "name": "apikey",
+          "type": "credentials",
+          "info": "VirusTotal apikey",
+          "required": true
+        },
+        {
+          "name": "resource",
+          "type": "Array",
+          "info": "List of a md5/sha1/sha256 hash. Up to 25 items, this allows you to perform a batch request with one single call. Note that the file must already be present in our file store.",
+          "required": true,
+          "structure": {
+            "name": "ResourceId",
+            "type": "String",
+            "info": "md5/sha1/sha256 hash"
+          }
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getFileScanReport",
+      "description": "Retrieving file scan reports",
+      "method": "POST",
+      "url": "https://www.virustotal.com/vtapi/v2/file/report",
+      "args": [
+        {
+          "name": "apikey",
+          "type": "credentials",
+          "info": "VirusTotal apikey",
+          "required": true
+        },
+        {
+          "name": "resource",
+          "type": "Array",
+          "info": "List of a md5/sha1/sha256 hash. Up to 25 items, this allows you to perform a batch request with one single call. Note that the file must already be present in our file store.",
+          "required": true,
+          "structure": {
+            "name": "ResourceId",
+            "type": "String",
+            "info": "md5/sha1/sha256 hash"
+          }
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "scanURLs",
+      "description": "Sending and scanning URLs",
+      "method": "POST",
+      "url": "https://www.virustotal.com/vtapi/v2/url/scan",
+      "args": [
+        {
+          "name": "apikey",
+          "type": "credentials",
+          "info": "VirusTotal apikey",
+          "required": true
+        },
+        {
+          "name": "urls",
+          "type": "Array",
+          "info": "This parameter accepts a list of URLs (up to 4 with the standard request rate) so as to perform a batch scanning request with one single call.",
+          "required": true,
+          "structure": {
+            "name": "url",
+            "type": "String",
+            "info": "URL to scan"
+          }
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getURLscanReport",
+      "description": "Retrieving URL scan reports",
+      "method": "POST",
+      "url": "http://www.virustotal.com/vtapi/v2/url/report",
+      "args": [
+        {
+          "name": "apikey",
+          "type": "credentials",
+          "info": "VirusTotal apikey",
+          "required": true
+        },
+        {
+          "name": "resource",
+          "type": "Array",
+          "info": "List of a scan_id. Up to 4 items, this allows you to perform a batch request with one single call. Note that the file must already be present in our file store.",
+          "required": true,
+          "structure": {
+            "name": "scan_id",
+            "type": "String",
+            "info": "sha256-timestamp as returned by the URL submission API"
+          }
+        },
+        {
+          "name": "scan",
+          "type": "Boolean",
+          "info": "True -  will automatically submit the URL for analysis if no report is found for it in VirusTotal's database. In this case the result will contain a scan_id field that can be used to query the analysis report later on.",
+          "required": false,
+          "toInt": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getReportIP",
+      "description": "Retrieving IP address reports",
+      "method": "POST",
+      "url": "http://www.virustotal.com/vtapi/v2/ip-address/report",
+      "args": [
+        {
+          "name": "apikey",
+          "type": "credentials",
+          "info": "VirusTotal apikey",
+          "required": true
+        },
+        {
+          "name": "ip",
+          "type": "String",
+          "info": "A valid IPv4 address in dotted quad notation, for the time being only IPv4 addresses are supported.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getDomainReport",
+      "description": "Retrieving domain reports",
+      "method": "POST",
+      "url": "http://www.virustotal.com/vtapi/v2/domain/report",
+      "args": [
+        {
+          "name": "apikey",
+          "type": "credentials",
+          "info": "VirusTotal apikey",
+          "required": true
+        },
+        {
+          "name": "domain",
+          "type": "String",
+          "info": "A domain name.",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "makeComment",
+      "description": "Make comments on files and URLs",
+      "method": "POST",
+      "url": "https://www.virustotal.com/vtapi/v2/comments/put",
+      "args": [
+        {
+          "name": "apikey",
+          "type": "credentials",
+          "info": "VirusTotal apikey",
+          "required": true
+        },
+        {
+          "name": "resource",
+          "type": "String",
+          "info": "Either a md5/sha1/sha256 hash of the file you want to review or the URL itself that you want to comment on.",
+          "required": true
+        },
+        {
+          "name": "comment",
+          "type": "String",
+          "info": "the actual review, you can tag it using the \"#\" twitter-like syntax (e.g. #disinfection #zbot) and reference users using the \"@\" syntax (e.g. @VirusTotalTeam)",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    }
+  ]
+}
