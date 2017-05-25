@@ -4,7 +4,7 @@
 * Credentials: apikey
 
 ## How to get credentials: 
-1. Item one
+1. [Sign up](https://www.virustotal.com/#signup) and go to "My API Key" page
  
 ## VirusTotal.scanFiles
 Send file to VirusTotal
