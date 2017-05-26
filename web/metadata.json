@@ -62,7 +62,7 @@
         },
         {
           "name": "resource",
-          "type": "Array",
+          "type": "List",
           "info": "List of a md5/sha1/sha256 hash. Up to 25 items, this allows you to perform a batch request with one single call. Note that the file must already be present in our file store.",
           "required": true,
           "structure": {
@@ -97,7 +97,7 @@
         },
         {
           "name": "resource",
-          "type": "Array",
+          "type": "List",
           "info": "List of a md5/sha1/sha256 hash. Up to 25 items, this allows you to perform a batch request with one single call. Note that the file must already be present in our file store.",
           "required": true,
           "structure": {
@@ -132,7 +132,7 @@
         },
         {
           "name": "urls",
-          "type": "Array",
+          "type": "List",
           "info": "This parameter accepts a list of URLs (up to 4 with the standard request rate) so as to perform a batch scanning request with one single call.",
           "required": true,
           "structure": {
@@ -167,7 +167,7 @@
         },
         {
           "name": "resource",
-          "type": "Array",
+          "type": "List",
           "info": "List of a scan_id. Up to 4 items, this allows you to perform a batch request with one single call. Note that the file must already be present in our file store.",
           "required": true,
           "structure": {
