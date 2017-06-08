@@ -1,6 +1,6 @@
 [![](https://scdn.rapidapi.com/RapidAPI_banner.png)](https://rapidapi.com/package/VirusTotal/functions?utm_source=RapidAPIGitHub_VirusTotalFunctions&utm_medium=button&utm_content=RapidAPI_GitHub)
 # VirusTotal Package
-* Domain: [https://virustotal.com/](https://https://virustotal.com/)
+* Domain: [https://virustotal.com/](https://virustotal.com/)
 * Credentials: apikey
 
 ## How to get credentials: 
