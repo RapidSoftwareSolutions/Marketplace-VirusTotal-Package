@@ -62,9 +62,14 @@
         },
         {
           "name": "resource",
-          "type": "String",
-          "info": "A md5/sha1/sha256 hash.",
-          "required": true
+          "type": "List",
+          "info": "List of a md5/sha1/sha256 hash. Up to 25 items, this allows you to perform a batch request with one single call. Note that the file must already be present in our file store.",
+          "required": true,
+          "structure": {
+            "name": "ResourceId",
+            "type": "String",
+            "info": "md5/sha1/sha256 hash"
+          }
         }
       ],
       "callbacks": [
